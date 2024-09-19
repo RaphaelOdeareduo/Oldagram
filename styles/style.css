@@ -41,12 +41,14 @@ img {
 
 .logo {
     width: 128px;
+    cursor: pointer;
 }
 
 .avatar {
     width: 34px;
     height: 34px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .user-info {
@@ -56,9 +58,16 @@ img {
     padding: 10px;
 }
 
+.username, .location {
+    cursor: pointer;
+}
+
+.post-img {
+    cursor: pointer;
+}
 
 .post-info {
-    padding: 20px 10px 16px
+    padding: 20px 10px 16px;
 }
 
 .icons {
@@ -70,10 +79,19 @@ img {
 
 .icon {
     width: 24px;
+    cursor: pointer;
+}
+
+.icon:hover {
+    opacity: 0.7;
 }
 
 .likes {
     margin-bottom: 16px;
+}
+
+.likes, .commenter {
+    cursor: pointer;
 }
 
 .comment-info {
