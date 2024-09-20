@@ -42,7 +42,6 @@ headerEl.innerHTML = `
 
 const mainContainerEl = document.querySelector(".main");
 
-// TODO: Increase likes when double-clicking post
 function renderPosts() {
     let postsHTML = "";
     for (let i = 0; i < posts.length; i++) {
@@ -64,11 +63,15 @@ function renderPosts() {
                     <div class="post-info">
                         <div class="container">
                             <div class="icons">
-                                <img class="icon" src="images/icon-heart.png" alt="like icon">
+                                <img class="icon icon-like" src="images/icon-heart.png" alt="like icon">
                                 <img class="icon" src="images/icon-comment.png" alt="comment icon">
                                 <img class="icon" src="images/icon-dm.png" alt="message icon">
                             </div>
-                            <p class="likes bold">${posts[i].likes} likes</p>
+                            <p class="likes bold">
+                                <span class="like-number">   
+                                ${posts[i].likes}
+                                </span>
+                             likes</p>
                             <div class="comment-info">
                                 <p class="commenter bold">${posts[i].username}</p>
                                 <p class="comment">${posts[i].comment}</p>
@@ -83,3 +86,15 @@ function renderPosts() {
 }
 
 renderPosts();
+
+const postSections = document.querySelectorAll('.section')
+
+for (let i = 0; i < postSections.length; i++) {
+    let postImg = postSections[i].querySelector(".post-img");
+    let postLikeCountEl = postSections[i].querySelector(".like-number");
+    let postLikeCount = Number(postLikeCountEl.textContent)
+    postImg.addEventListener("dblclick", () => {
+        postLikeCount += 1;
+        postLikeCountEl.textContent = postLikeCount
+    })
+}
