@@ -63,9 +63,9 @@ function renderPosts() {
                     <div class="post-info">
                         <div class="container">
                             <div class="icons">
-                                <img class="icon icon-like" src="images/icon-heart.png" alt="like icon">
-                                <img class="icon" src="images/icon-comment.png" alt="comment icon">
-                                <img class="icon" src="images/icon-dm.png" alt="message icon">
+                                <ion-icon class="icon icon-like" name="heart"></ion-icon>
+                                <ion-icon class="icon" name="text"></ion-icon>
+                                <ion-icon class="icon" name="paper-plane"></ion-icon>
                             </div>
                             <p class="likes bold">
                                 <span class="like-number">   
@@ -87,14 +87,17 @@ function renderPosts() {
 
 renderPosts();
 
-const postSections = document.querySelectorAll('.section')
+const postSections = document.querySelectorAll('.section');
 
 for (let i = 0; i < postSections.length; i++) {
     let postImg = postSections[i].querySelector(".post-img");
+    let postLikeIcon = postSections[i].querySelector(".icon-like");
     let postLikeCountEl = postSections[i].querySelector(".like-number");
-    let postLikeCount = Number(postLikeCountEl.textContent)
+    let postLikeCount = Number(postLikeCountEl.textContent);
     postImg.addEventListener("dblclick", () => {
         postLikeCount += 1;
-        postLikeCountEl.textContent = postLikeCount
+        postLikeCountEl.textContent = postLikeCount;
+        postLikeIcon.style.transition = "fill 0.2s";
+        postLikeIcon.style.fill = "#d00000";
     })
 }
